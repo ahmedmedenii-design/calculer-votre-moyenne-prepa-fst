@@ -1,5 +1,6 @@
 // ======================== DONNÉES DES MATIÈRES ========================
 const matieresData = {
+    
     mpi: {
         s1: [
             { nom: "Algèbre 1", coef: 2, code: "alg1" },
