@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur MPI · MI · PI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- Bouton mode sombre -->
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i> 
+                <span id="themeText">Mode sombre</span>
+            </button>
+
+            <!-- Signature -->
+            <div class="signature-container">
+                <div class="signature-flex">
+                    <div class="signature-left">
+                        <div class="developer-badge">
+                            <i class="fas fa-code"></i> DÉVELOPPÉ PAR
+                        </div>
+                        <div class="signature">AHMED MDINI</div>
+                    </div>
+                    
+                    <div class="signature-right">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+21629700626" class="contact-link">+216 29 700 626</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:ahmed.medenii@gmail.com" class="contact-link">ahmed.medenii@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span class="contact-link">Tunisie</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="signature-divider"></div>
+            </div>
+            
+            <h1><i class="fas fa-graduation-cap"></i> Calculateur d'orientation</h1>
+            <p class="subtitle">MPI · MI · PI — Moyennes et scores d'accès</p>
+        </header>
+
+        <!-- Filières principales -->
+        <div class="filiere-tabs">
+            <div class="filiere-tab active" data-filiere="mpi">MPI (1ʳᵉ année)</div>
+            <div class="filiere-tab" data-filiere="mi">MI (2ᵉ année)</div>
+            <div class="filiere-tab" data-filiere="pi">PI (2ᵉ année)</div>
+        </div>
+
+        <!-- Contenu MPI -->
+        <div id="mpi-content" class="filiere-content active">
+            <div class="semester-tabs">
+                <div class="semester-tab active" data-semester="s1">Semestre 1</div>
+                <div class="semester-tab" data-semester="s2">Semestre 2</div>
+                <div class="semester-tab" data-semester="annual">Moyenne annuelle</div>
+                <div class="semester-tab" data-semester="scores">Scores d'orientation</div>
+            </div>
+            <div id="mpi-s1" class="semester-content active">
+                <div class="calculator-container">
+                    <div class="matieres-section" id="mpi-matieres-s1"></div>
+                    <div class="results-section">
+                        <div class="result-card">
+                            <h2>Résultat Semestre 1</h2>
+                            <div class="result-value" id="mpi-moyenne-s1">0.00</div>
+                            <div class="result-message" id="mpi-message-s1">Entrez les notes</div>
+                            <div class="validation-message" id="mpi-validation-s1"></div>
+                            <div class="controls">
+                                <button class="calculate-btn" data-filiere="mpi" data-semestre="s1">Calculer S1</button>
+                                <button class="reset-btn" data-filiere="mpi" data-semestre="s1">Réinitialiser</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mpi-s2" class="semester-content">
+                <div class="calculator-container">
+                    <div class="matieres-section" id="mpi-matieres-s2"></div>
+                    <div class="results-section">
+                        <div class="result-card">
+                            <h2>Résultat Semestre 2</h2>
+                            <div class="result-value" id="mpi-moyenne-s2">0.00</div>
+                            <div class="result-message" id="mpi-message-s2">Entrez les notes</div>
+                            <div class="validation-message" id="mpi-validation-s2"></div>
+                            <div class="controls">
+                                <button class="calculate-btn" data-filiere="mpi" data-semestre="s2">Calculer S2</button>
+                                <button class="reset-btn" data-filiere="mpi" data-semestre="s2">Réinitialiser</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mpi-annual" class="semester-content">
+                <div class="info-box">
+                    <h3>Moyenne annuelle</h3>
+                    <p>Basée sur les semestres 1 et 2.</p>
+                </div>
+                <div class="result-card">
+                    <h2>Moyenne annuelle</h2>
+                    <div class="result-value" id="mpi-moyenne-annuelle">0.00</div>
+                    <div class="result-message" id="mpi-message-annuel">Calculez d'abord les deux semestres</div>
+                    <div class="validation-message" id="mpi-validation-annuel"></div>
+                    <button id="mpi-calc-annuel">Calculer la moyenne annuelle</button>
+                </div>
+            </div>
+            <div id="mpi-scores" class="semester-content">
+                <div class="score-section">
+                    <h2>Scores d'orientation (fin de 1ʳᵉ année)</h2>
+                    <div class="bonus-section">
+                        <div class="bonus-label">
+                            <input type="checkbox" id="mpi-bonus" class="bonus-checkbox">
+                            <label for="mpi-bonus">Bonus session principale (0.5 point)</label>
+                        </div>
+                    </div>
+                    <div class="score-grid">
+                        <div class="score-card">
+                            <div class="score-type">Score MI</div>
+                            <div class="score-value" id="mpi-score-mi">0.00</div>
+                            <div class="detail-item" id="mpi-detail-mi"></div>
+                        </div>
+                        <div class="score-card">
+                            <div class="score-type">Score PI</div>
+                            <div class="score-value" id="mpi-score-pi">0.00</div>
+                            <div class="detail-item" id="mpi-detail-pi"></div>
+                        </div>
+                    </div>
+                    <div class="validation-message" id="mpi-validation-scores"></div>
+                    <button id="mpi-calc-scores">Calculer les scores</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenu MI -->
+        <div id="mi-content" class="filiere-content">
+            <!-- Section pour saisir manuellement la moyenne de 1A -->
+            <div class="manual-grade-section">
+                <div style="flex: 1;">
+                    <h3 style="color: #2c3e50; margin-bottom: 10px;">
+                        <i class="fas fa-pencil-alt" style="color: #f39c12;"></i> 
+                        Moyenne de 1ère année (optionnel)
+                    </h3>
+                    <p style="color: #7f8c8d; font-size: 0.95rem;">
+                        Vous pouvez saisir directement votre moyenne de 1ère année sans calculer les semestres MPI.
+                    </p>
+                </div>
+                <div class="manual-grade-input">
+                    <label for="manualMoyenne1A">Moyenne 1A :</label>
+                    <input type="number" id="manualMoyenne1A" min="0" max="20" step="0.1" placeholder="0.00">
+                    <button id="applyManualMoyenne1A">Appliquer</button>
+                </div>
+                <div class="manual-grade-info" id="manualGradeInfo1A">
+                    Moyenne actuelle: 
+                    <span id="currentMoyenne1ADisplay">0.00</span>
+                    (calculée automatiquement)
+                </div>
+            </div>
+
+            <div class="semester-tabs">
+                <div class="semester-tab active" data-semester="s3">Semestre 3</div>
+                <div class="semester-tab" data-semester="s4">Semestre 4</div>
+                <div class="semester-tab" data-semester="annual">Moyenne 2A</div>
+                <div class="semester-tab" data-semester="scores">Scores spécialités</div>
+            </div>
+            <div id="mi-s3" class="semester-content active">
+                <div class="calculator-container">
+                    <div class="matieres-section" id="mi-matieres-s3"></div>
+                    <div class="results-section">
+                        <div class="result-card">
+                            <h2>Résultat Semestre 3</h2>
+                            <div class="result-value" id="mi-moyenne-s3">0.00</div>
+                            <div class="result-message" id="mi-message-s3">Entrez les notes</div>
+                            <div class="validation-message" id="mi-validation-s3"></div>
+                            <div class="controls">
+                                <button class="calculate-btn" data-filiere="mi" data-semestre="s3">Calculer S3</button>
+                                <button class="reset-btn" data-filiere="mi" data-semestre="s3">Réinitialiser</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mi-s4" class="semester-content">
+                <div class="calculator-container">
+                    <div class="matieres-section" id="mi-matieres-s4"></div>
+                    <div class="results-section">
+                        <div class="result-card">
+                            <h2>Résultat Semestre 4</h2>
+                            <div class="result-value" id="mi-moyenne-s4">0.00</div>
+                            <div class="result-message" id="mi-message-s4">Entrez les notes</div>
+                            <div class="validation-message" id="mi-validation-s4"></div>
+                            <div class="controls">
+                                <button class="calculate-btn" data-filiere="mi" data-semestre="s4">Calculer S4</button>
+                                <button class="reset-btn" data-filiere="mi" data-semestre="s4">Réinitialiser</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mi-annual" class="semester-content">
+                <div class="result-card">
+                    <h2>Moyenne de 2ème année (MI)</h2>
+                    <div class="result-value" id="mi-moyenne-2a">0.00</div>
+                    <div class="validation-message" id="mi-validation-annuel"></div>
+                    <button id="mi-calc-annuel">Calculer la moyenne 2A</button>
+                </div>
+            </div>
+            <div id="mi-scores" class="semester-content">
+                <div class="score-section">
+                    <h2>Scores d'accès aux spécialités MI</h2>
+                    <div class="bonus-section">
+                        <div class="bonus-label">
+                            <input type="checkbox" id="mi-bonus" class="bonus-checkbox">
+                            <label for="mi-bonus">Bonus session principale (0.5)</label>
+                        </div>
+                        <div class="bonus-label" style="margin-top:10px;">
+                            <input type="checkbox" id="mi-malus" class="bonus-checkbox">
+                            <label for="mi-malus">Malus redoublement 2A (-1 point)</label>
+                        </div>
+                    </div>
+                    <div class="score-grid">
+                        <div class="score-card">
+                            <div class="score-type">GL & SI</div>
+                            <div class="score-value" id="mi-score-glsi">0.00</div>
+                        </div>
+                        <div class="score-card">
+                            <div class="score-type">Data Science</div>
+                            <div class="score-value" id="mi-score-ds">0.00</div>
+                        </div>
+                        <div class="score-card">
+                            <div class="score-type">ISI</div>
+                            <div class="score-value" id="mi-score-isi">0.00</div>
+                        </div>
+                    </div>
+                    <div class="validation-message" id="mi-validation-scores"></div>
+                    <button id="mi-calc-scores">Calculer les scores MI</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenu PI -->
+        <div id="pi-content" class="filiere-content">
+            <!-- Section pour saisir manuellement la moyenne de 1A (pour PI aussi) -->
+            <div class="manual-grade-section">
+                <div style="flex: 1;">
+                    <h3 style="color: #2c3e50; margin-bottom: 10px;">
+                        <i class="fas fa-pencil-alt" style="color: #f39c12;"></i> 
+                        Moyenne de 1ère année (optionnel)
+                    </h3>
+                    <p style="color: #7f8c8d; font-size: 0.95rem;">
+                        Vous pouvez saisir directement votre moyenne de 1ère année sans calculer les semestres MPI.
+                    </p>
+                </div>
+                <div class="manual-grade-input">
+                    <label for="manualMoyenne1A-PI">Moyenne 1A :</label>
+                    <input type="number" id="manualMoyenne1A-PI" min="0" max="20" step="0.1" placeholder="0.00">
+                    <button id="applyManualMoyenne1A-PI">Appliquer</button>
+                </div>
+                <div class="manual-grade-info" id="manualGradeInfo1A-PI">
+                    Moyenne actuelle: 
+                    <span id="currentMoyenne1ADisplay-PI">0.00</span>
+                    (calculée automatiquement)
+                </div>
+            </div>
+
+            <div class="semester-tabs">
+                <div class="semester-tab active" data-semester="s3">Semestre 3</div>
+                <div class="semester-tab" data-semester="s4">Semestre 4</div>
+                <div class="semester-tab" data-semester="annual">Moyenne 2A</div>
+                <div class="semester-tab" data-semester="scores">Scores spécialités</div>
+            </div>
+            <div id="pi-s3" class="semester-content active">
+                <div class="calculator-container">
+                    <div class="matieres-section" id="pi-matieres-s3"></div>
+                    <div class="results-section">
+                        <div class="result-card">
+                            <h2>Résultat Semestre 3</h2>
+                            <div class="result-value" id="pi-moyenne-s3">0.00</div>
+                            <div class="result-message" id="pi-message-s3">Entrez les notes</div>
+                            <div class="validation-message" id="pi-validation-s3"></div>
+                            <div class="controls">
+                                <button class="calculate-btn" data-filiere="pi" data-semestre="s3">Calculer S3</button>
+                                <button class="reset-btn" data-filiere="pi" data-semestre="s3">Réinitialiser</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pi-s4" class="semester-content">
+                <div class="calculator-container">
+                    <div class="matieres-section" id="pi-matieres-s4"></div>
+                    <div class="results-section">
+                        <div class="result-card">
+                            <h2>Résultat Semestre 4</h2>
+                            <div class="result-value" id="pi-moyenne-s4">0.00</div>
+                            <div class="result-message" id="pi-message-s4">Entrez les notes</div>
+                            <div class="validation-message" id="pi-validation-s4"></div>
+                            <div class="controls">
+                                <button class="calculate-btn" data-filiere="pi" data-semestre="s4">Calculer S4</button>
+                                <button class="reset-btn" data-filiere="pi" data-semestre="s4">Réinitialiser</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pi-annual" class="semester-content">
+                <div class="result-card">
+                    <h2>Moyenne de 2ème année (PI)</h2>
+                    <div class="result-value" id="pi-moyenne-2a">0.00</div>
+                    <div class="validation-message" id="pi-validation-annuel"></div>
+                    <button id="pi-calc-annuel">Calculer la moyenne 2A</button>
+                </div>
+            </div>
+            <div id="pi-scores" class="semester-content">
+                <div class="score-section">
+                    <h2>Scores d'accès aux spécialités PI</h2>
+                    <div class="bonus-section">
+                        <div class="bonus-label">
+                            <input type="checkbox" id="pi-bonus" class="bonus-checkbox">
+                            <label for="pi-bonus">Bonus session principale (0.5)</label>
+                        </div>
+                        <div class="bonus-label" style="margin-top:10px;">
+                            <input type="checkbox" id="pi-malus" class="bonus-checkbox">
+                            <label for="pi-malus">Malus redoublement 2A (-1 point)</label>
+                        </div>
+                    </div>
+                    <div class="score-grid">
+                        <div class="score-card">
+                            <div class="score-type">EE (Électronique Embarquée)</div>
+                            <div class="score-value" id="pi-score-ee">0.00</div>
+                        </div>
+                        <div class="score-card">
+                            <div class="score-type">GP & MN</div>
+                            <div class="score-value" id="pi-score-gpmn">0.00</div>
+                        </div>
+                    </div>
+                    <div class="validation-message" id="pi-validation-scores"></div>
+                    <button id="pi-calc-scores">Calculer les scores PI</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-signature">
+                <i class="fas fa-code"></i> AHMED MDINI <i class="fas fa-laptop-code"></i>
+            </div>
+            <p>Calculateur intégré des parcours MPI · MI · PI — Conforme aux textes officiels</p>
+            <p>© 2025 Tous droits réservés</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

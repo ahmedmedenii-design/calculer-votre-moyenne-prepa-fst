@@ -1,0 +1,790 @@
+/* ===== STYLES COMPLETS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+    color: #ecf0f1;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0 20px;
+    position: relative;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.dark-mode h1 {
+    color: #ecf0f1;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.dark-mode .subtitle {
+    color: #bdc3c7;
+}
+
+/* Bouton mode sombre */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: white;
+    border: 2px solid #3498db;
+    border-radius: 50px;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+    color: #2c3e50;
+}
+
+.dark-mode .theme-toggle {
+    background: #34495e;
+    border-color: #9b59b6;
+    color: #ecf0f1;
+    box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
+}
+
+.theme-toggle i {
+    color: #3498db;
+    font-size: 1.2rem;
+}
+
+.dark-mode .theme-toggle i {
+    color: #9b59b6;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+}
+
+/* Signature container */
+.signature-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    backdrop-filter: blur(10px);
+    margin: 0 auto 40px auto;
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+}
+
+.dark-mode .signature-container {
+    background: rgba(44, 62, 80, 0.98);
+    border-color: rgba(155, 89, 182, 0.3);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.signature-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.signature-left {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.signature-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.developer-badge {
+    background: linear-gradient(45deg, #3498db, #2c3e50);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+    margin-bottom: 10px;
+}
+
+.dark-mode .developer-badge {
+    background: linear-gradient(45deg, #9b59b6, #34495e);
+}
+
+.signature {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.8rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.dark-mode .signature {
+    background: linear-gradient(135deg, #9b59b6, #ecf0f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: rgba(52, 152, 219, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.dark-mode .contact-item {
+    background: rgba(155, 89, 182, 0.1);
+}
+
+.contact-item:hover {
+    background: rgba(52, 152, 219, 0.1);
+    transform: translateX(5px);
+}
+
+.dark-mode .contact-item:hover {
+    background: rgba(155, 89, 182, 0.2);
+}
+
+.contact-item i {
+    color: #3498db;
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.dark-mode .contact-item i {
+    color: #9b59b6;
+}
+
+.contact-link {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.dark-mode .contact-link {
+    color: #ecf0f1;
+}
+
+.signature-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #3498db, #9b59b6, #3498db, transparent);
+    margin-top: 15px;
+}
+
+/* Navigation par filières */
+.filiere-tabs {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 30px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filiere-tab {
+    padding: 15px 40px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #7f8c8d;
+}
+
+.dark-mode .filiere-tab {
+    background: #2c3e50;
+    border-color: #34495e;
+    color: #bdc3c7;
+}
+
+.filiere-tab.active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.dark-mode .filiere-tab.active {
+    background: #9b59b6;
+    border-color: #9b59b6;
+    box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
+}
+
+.filiere-content {
+    display: none;
+}
+
+.filiere-content.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sous-onglets semestres */
+.semester-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.semester-tab {
+    padding: 12px 25px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #7f8c8d;
+}
+
+.dark-mode .semester-tab {
+    background: #2c3e50;
+    border-color: #34495e;
+    color: #bdc3c7;
+}
+
+.semester-tab.active {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.dark-mode .semester-tab.active {
+    background: #9b59b6;
+    border-color: #9b59b6;
+}
+
+.semester-content {
+    display: none;
+}
+
+.semester-content.active {
+    display: block;
+}
+
+.info-box {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-left: 5px solid #3498db;
+}
+
+.dark-mode .info-box {
+    background: #34495e;
+    border-left-color: #9b59b6;
+}
+
+/* Section pour la moyenne manuelle de 1A */
+.manual-grade-section {
+    background: #fff8e1;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-left: 5px solid #f39c12;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.dark-mode .manual-grade-section {
+    background: #2c3e50;
+    border-left-color: #f39c12;
+}
+
+.manual-grade-input {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.manual-grade-input label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.dark-mode .manual-grade-input label {
+    color: #ecf0f1;
+}
+
+.manual-grade-input input {
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 120px;
+    text-align: center;
+    background: white;
+}
+
+.dark-mode .manual-grade-input input {
+    background: #34495e;
+    border-color: #2c3e50;
+    color: white;
+}
+
+.manual-grade-input input:focus {
+    outline: none;
+    border-color: #f39c12;
+}
+
+.manual-grade-input button {
+    padding: 12px 25px;
+    background: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.manual-grade-input button:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+}
+
+.manual-grade-info {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.calculator-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.matieres-section {
+    flex: 2;
+    min-width: 300px;
+}
+
+.results-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.matiere-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.dark-mode .matiere-card {
+    background: #2c3e50;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.matiere-card:hover {
+    transform: translateY(-5px);
+}
+
+.matiere-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.dark-mode .matiere-header {
+    border-bottom-color: #34495e;
+}
+
+.matiere-name {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.dark-mode .matiere-name {
+    color: #ecf0f1;
+}
+
+.coefficient {
+    background: #3498db;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.dark-mode .coefficient {
+    background: #9b59b6;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.input-field {
+    flex: 1;
+    min-width: 120px;
+}
+
+.input-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.dark-mode .input-field label {
+    color: #bdc3c7;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+}
+
+.dark-mode .input-field input {
+    background: #34495e;
+    border-color: #2c3e50;
+    color: white;
+}
+
+.input-field input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.input-field input.invalid {
+    border-color: #e74c3c;
+    background-color: #fadbd8;
+}
+
+.dark-mode .input-field input.invalid {
+    border-color: #e74c3c;
+    background-color: #5a2e2a;
+}
+
+.tp-hint {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-top: 3px;
+    font-style: italic;
+}
+
+.matiere-result {
+    text-align: right;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.dark-mode .matiere-result {
+    border-top-color: #34495e;
+}
+
+.result-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 20px;
+}
+
+.dark-mode .result-card {
+    background: #34495e;
+}
+
+.result-card h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dark-mode .result-card h2 {
+    color: #ecf0f1;
+}
+
+.result-value {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #3498db;
+    margin: 20px 0;
+}
+
+.dark-mode .result-value {
+    color: #9b59b6;
+}
+
+.result-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+button {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+    background: #3498db;
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.reset-btn {
+    background: #e74c3c;
+}
+
+.reset-btn:hover {
+    background: #c0392b;
+}
+
+.validation-message {
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 15px;
+    display: none;
+}
+
+.validation-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+.validation-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.score-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-top: 5px solid #2ecc71;
+}
+
+.dark-mode .score-section {
+    background: #34495e;
+    border-top-color: #f1c40f;
+}
+
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.score-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dark-mode .score-card {
+    background: #2c3e50;
+}
+
+.score-type {
+    font-weight: 600;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.score-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2ecc71;
+    margin: 10px 0;
+}
+
+.dark-mode .score-value {
+    color: #f1c40f;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.dark-mode .detail-item {
+    border-bottom-color: #34495e;
+}
+
+.bonus-section {
+    background: #fff8e1;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.dark-mode .bonus-section {
+    background: #2c3e50;
+    border: 1px solid #f39c12;
+}
+
+.bonus-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #7f8c8d;
+    margin-top: 30px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.dark-mode .footer {
+    border-top-color: #34495e;
+    color: #bdc3c7;
+}
+
+.footer-signature {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin: 10px 0;
+}
+
+.dark-mode .footer-signature {
+    color: #ecf0f1;
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        position: static;
+        margin: 10px auto;
+    }
+    
+    .signature-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .signature-left, .signature-right {
+        text-align: center;
+    }
+    
+    .signature {
+        text-align: center;
+        font-size: 2.2rem;
+    }
+    
+    .contact-item {
+        justify-content: center;
+    }
+    
+    .calculator-container {
+        flex-direction: column;
+    }
+    
+    .manual-grade-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
